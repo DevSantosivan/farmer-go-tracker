@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard-layout">
+  <!-- Sidebar -->
+  <nav class="sidebar" [ngClass]="{'open': isSidebarOpen}">
+    <ul>
+      <li routerLink="dashboard" routerLinkActive="active">
+        <i class='bx bxs-dashboard'></i> Dashboard
+      </li>
+      <li routerLink="add-expense" routerLinkActive="active">
+        <i class='bx bxs-shopping-bags'></i> Expenses
+      </li>
+      <li routerLink="report" routerLinkActive="active">
+        <i class='bx bxs-wallet'></i> Income
+      </li>
+    </ul>
+  </nav>  
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Sidebar Toggle Button for Mobile -->
+    <i class="bx bx-menu toggle-sidebar-btn" (click)="toggleSidebar()"></i> <!-- Toggle Button -->
+
+    <h3>Welcome back, {{ currentUser?.fullname }}!</h3>
+    <router-outlet></router-outlet>
+  </div>
+</div>

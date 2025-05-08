@@ -1,0 +1,46 @@
+<div class="dashboard-container">
+    <h1>Overview</h1>
+    <button class="sales-btn" (click)="openModal()">
+      <i class="bx bx-plus"></i> Add Sales
+    </button>
+    
+    <!-- Modal -->
+    <div class="add-sales-modal" *ngIf="showModal" (click)="closeModal($event)">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close-btn" (click)="closeModal($event)">&times;</span>
+        <h2>Add Sales</h2>
+        <form (ngSubmit)="submitForm()">
+          <label>Amount</label><br />
+          <input type="number" [(ngModel)]="amount" name="amount" /><br /><br />
+    
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="financila-list">
+        <div class="list">
+         <div>
+          <i class='bx bx-transfer-alt'></i>
+          <h3>Sales</h3>
+         </div>
+         <span>{{ formatNumber(totalSales) }}</span>
+        </div>
+        <div class="list">
+         <div> <i class='bx bxs-shopping-bags'></i>
+          <h3>Total Expenses</h3>
+        </div>
+        <span>{{ formatNumber(totalExpenses) }}</span>
+        </div>
+        <div class="list">
+         <div> <i class='bx bxs-wallet'></i>
+          <h3>Total Income</h3>
+        </div>
+        <span>{{ formatNumber(totalSales - totalExpenses) }}</span>
+        </div>
+    </div>
+
+
+    <div class="chart-container">
+      <canvas id="expenseChart"></canvas>
+    </div>
+</div>

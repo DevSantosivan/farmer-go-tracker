@@ -1,0 +1,243 @@
+/* Container to center the content */
+.monthly-report-container {
+    padding: 20px;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  /* Heading */
+  .monthly-report-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Bar Chart Container */
+  canvas {
+    max-width: 100%;
+  
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  table th,
+  table td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  table td {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  table td .list:hover {
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: 0.5px solid rgba(0, 0, 0, 0.151);
+  }
+  
+  /* Net Income Text Style */
+  .text-danger {
+    color: #e53935;
+  }
+  
+  .text-success {
+    color: #66bb6a;
+  }
+  
+  /* Responsive table styling */
+  .table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  
+  /* Monthly Net Income Display */
+  .mt-3 {
+    margin-top: 20px;
+  }
+  
+  .mt-3 strong {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 8px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #388e3c;
+  }
+  
+  button:disabled {
+    background-color: #ddd;
+  }
+  
+  /* Style for the action button (the "..." button) */
+  td button {
+    background: transparent;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    position: relative;
+  }
+  
+  /* Dropdown menu for action items */
+  .action-menu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 0;
+    margin-top: 5px;
+    z-index: 100;
+    list-style: none;
+    width: 100px;
+  }
+  
+  /* Style for each list item in the action menu */
+  .action-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Last item should not have a bottom border */
+  .action-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Hover effect for action items */
+  .action-menu li:hover {
+    background-color: #f0f0f0;
+    color: #007700;
+  }
+  
+  /* Ensure parent td is relative to position the dropdown */
+  td {
+    position: relative;
+  }
+  
+  /* Container for all action buttons in the table */
+  .table-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  /* Modal backdrop (background overlay) */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+  
+  /* Modal positioning at the center */
+  .modal-top {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  /* Modal content box */
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  /* Headings inside modal */
+  .modal-content h2,
+  .modal-content h3 {
+    margin-top: 0;
+  }
+  
+  /* Form inside the modal */
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Table inside the modal */
+  .modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Zebra striping for table rows */
+  .modal-content tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Modal action buttons (Submit, Close) */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Button styling inside modal */
+  .modal-actions button {
+    padding: 8px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .modal-actions button:hover {
+    background-color: #388e3c;
+  }
+  

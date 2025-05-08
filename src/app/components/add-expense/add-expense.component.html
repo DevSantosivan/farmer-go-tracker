@@ -1,0 +1,77 @@
+<div class="container">
+    <h3>Transactions</h3>
+  
+    <div class="header">
+      <!-- Search Field -->
+      <div class="search-bar">
+        <i class='bx bx-search-alt-2'></i>
+        <input type="text" [(ngModel)]="searchText" placeholder="Search transactions..." />
+      </div>
+  
+      <button (click)="showModal = true"><i class='bx bx-plus'></i> Add Expense</button>
+    </div>
+  
+    <table>
+      <thead>
+        <tr class="heading">
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Note</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="list" *ngFor="let tx of filteredTransactions()">
+          <td>{{ tx.amount }}</td>
+          <td>
+            <i [class]="categoryStyles[tx.category].icon" 
+               [style.color]="categoryStyles[tx.category].color"
+               style="margin-right: 8px;"></i>
+            <span>{{ tx.category }}</span>
+          </td>
+          <td>{{ tx.date }}</td>
+          <td>{{ tx.note }}</td>
+          <td>
+            <button (click)="toggleActions(tx)"><i class='bx bx-dots-vertical-rounded'></i></button>
+            <ul *ngIf="tx.showActions" class="action-menu">
+              <li (click)="editTransaction(tx)">Edit</li>
+              <li (click)="deleteTransaction(tx)">Delete</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p *ngIf="filteredTransactions().length === 0">No transactions found.</p>
+  
+    <!-- Modal -->
+    <div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()"></div>
+    <div class="modal-top" *ngIf="showModal">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <h2>{{ selectedTransaction ? 'Edit Expense' : 'Add Expense' }}</h2>
+  
+        <form [formGroup]="form" (ngSubmit)="submitTransactions()">
+          <label>Amount:</label>
+          <input type="number" formControlName="amount" required />
+  
+          <label>Category:</label>
+          <select formControlName="category">
+            <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+          </select>
+  
+          <label>Date:</label>
+          <input type="date" formControlName="date" />
+  
+          <label>Note:</label>
+          <textarea formControlName="note"></textarea>
+  
+          <div class="modal-actions">
+            <button type="submit" [disabled]="form.invalid">Submit Transaction</button>
+            <button type="button" (click)="closeModal()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

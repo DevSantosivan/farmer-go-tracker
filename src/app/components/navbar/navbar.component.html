@@ -1,0 +1,23 @@
+<div class="navbar-container">
+    <div class="logo">
+      <h1>Go Tracker</h1>
+    </div>
+  
+    <div class="current_user">
+      <h3 *ngIf="currentUser$ | async as user" class="email">
+        {{ user?.email }} <!-- Display email here -->
+      </h3>
+      <div class="icon" (click)="toggleProfileMenu()">
+        <i class='bx bxs-user-circle'></i>
+      </div>
+  
+      <!-- Profile Dropdown Menu -->
+      <div *ngIf="isProfileMenuOpen" class="profile-menu">
+        <ul>
+          <!-- <li (click)="goToSettings()">Settings</li> -->
+          <li (click)="logout()">Logout</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
